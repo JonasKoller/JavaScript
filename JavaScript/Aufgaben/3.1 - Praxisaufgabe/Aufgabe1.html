@@ -9,8 +9,8 @@
 		}
 		function changeBG() {
 			var temp  = document.getElementById("myDiv").style.backgroundColor;
-			document.getElementById("myDiv").style.backgroundColor = document.getElementById("bodyyyy").style.backgroundColor;
-			document.getElementById("bodyyyy").style.backgroundColor = temp;
+			document.getElementById("myDiv").style.backgroundColor = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
+			document.body.style.backgroundColor = temp;
 		}
 		function doppelklick() {
 			document.getElementById("myDiv").classList.toggle("hiddenDiv");
@@ -18,14 +18,16 @@
 	</script>
 </head>
 <style>
+	body{
+		background-color: red;
+	}
 	.hiddenDiv {
 		display: none;
 	}
 </style>
-<body id="bodyyyy">
+<body>
 	<div id="myDiv" style="height:300px;width:300px;background-color:blue;"></div>
 	<script>
-		document.body.style.backgroundColor = "green";
 
 		document.getElementById("myDiv").addEventListener("click", sayHello);
 
