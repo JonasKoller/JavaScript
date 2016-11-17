@@ -1,0 +1,42 @@
+<html>
+<head>
+	<script>
+		function sayHello() {
+			alert("Hello World!");
+		}
+		function mausrad() {
+			alert("Mouse wheel has been rotated!");
+		}
+		function changeBG() {
+			var temp  = document.getElementById("myDiv").style.backgroundColor;
+			document.getElementById("myDiv").style.backgroundColor = document.getElementById("bodyyyy").style.backgroundColor;
+			document.getElementById("bodyyyy").style.backgroundColor = temp;
+		}
+		function doppelklick() {
+			document.getElementById("myDiv").classList.toggle("hiddenDiv");
+		}
+	</script>
+</head>
+<style>
+	.hiddenDiv {
+		display: none;
+	}
+</style>
+<body id="bodyyyy">
+	<div id="myDiv" style="height:300px;width:300px;background-color:blue;"></div>
+	<script>
+		document.body.style.backgroundColor = "green";
+
+		document.getElementById("myDiv").addEventListener("click", sayHello);
+
+		document.getElementById("myDiv").addEventListener("mouseover", changeBG);
+  	document.getElementById("myDiv").addEventListener('mouseout', changeBG);
+
+		document.addEventListener("mousewheel", mausrad);
+		//Firefox
+		document.addEventListener("DOMMouseScroll", mausrad);
+
+		document.addEventListener("dblclick", doppelklick);
+	</script>
+</body>
+</html>
